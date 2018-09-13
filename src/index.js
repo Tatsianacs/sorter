@@ -1,9 +1,10 @@
 function Sorter() {
     this.arr = [];
     this.length = 0;
-    this.comparator = function sortNumber(a, b) {
+    function sortNumber(a, b) {
         return a - b;
     }
+    this.comparator = sortNumber;
     this.add = function(item) {
         this.arr.push(item);
         this.length++;
@@ -17,6 +18,7 @@ function Sorter() {
     this.sort = function(arrIndexes) {
         var arrayToSort = [];
         var i;
+        arrIndexes.sort(sortNumber);
         for (i = 0; i < arrIndexes.length; i++) {
             arrayToSort.push(this.arr[arrIndexes[i]]);
         }
